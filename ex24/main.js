@@ -18,17 +18,11 @@ function calcImc(weight,height){
     calcImcPromise.then((result)=> {
         console.log(`Promise was resolved. The result was ${result}`);
         let situation = '';
-        if(result < 18.5){
-            situation = 'Thin';
-        } else if(result < 25){
-            situation = 'Normal';
-        } else if(result < 30){
-            situation = 'Overweight';
-        } else if(result < 40){
-            situation = 'Obesity';
-        } else {
-            situation = 'Severe obesity';
-        }
+        if(result < 18.5) situation = 'Thin';
+        else if(result < 25) situation = 'Normal';
+        else if(result < 30) situation = 'Overweight';
+        else if(result < 40) situation = 'Obesity';
+        else situation = 'Severe obesity';
         console.log(`Your situation is : ${situation}`);
     }).catch((reason) => {
         console.log(`Promise was rejected. Reason: ${reason}`);
