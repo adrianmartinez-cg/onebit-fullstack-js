@@ -1,5 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import Planet from './planet';
+import Form from './form';
 
 async function getPlanetsInfo(){
     let data = await fetch("http://localhost:3000/api/planets.json").then(resp => resp.json());
@@ -16,6 +17,10 @@ const Planets = (props) => {
         });
     },[]);
 
+    const addPlanet = (newPlanet) => {
+        setPlanets([...planets,newPlanet]);
+    }
+
     const retrieveIndex = (planetName) => {
         return planets.findIndex((p)=> p.id === planetName.toLowerCase());
     }
@@ -23,7 +28,11 @@ const Planets = (props) => {
     return(
         <Fragment>
             <h3>Planet list</h3>
+            <hr/>
+            <Form addPlanet = {addPlanet}/>
+            <hr/>
             {
+            
                 planets.map((planet)=> {
                     return <Planet 
                         key= {planet.id}
@@ -32,7 +41,7 @@ const Planets = (props) => {
                         description = {planet.description}
                         imgUrl = {planet.imgUrl}
                         link = {planet.link}
-                        satellites = {planets[retrieveIndex(planet.name)]['satellites']}
+                        satellites = {planets[retrieveIndex(planet.name)]?.['satellites'] ?? []}
                     />
                 })
             }
