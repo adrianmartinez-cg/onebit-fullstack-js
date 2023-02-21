@@ -1,0 +1,28 @@
+{
+    "planets": [
+        {
+            "id":"jupiter",
+            "name": "Jupiter",
+            "description": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined, and slightly less than one one-thousandth the mass of the Sun. Jupiter is the third brightest natural object in the Earth's night sky after the Moon and Venus, and it has been observed since prehistoric times. It was named after Jupiter, the chief deity of ancient Roman religion.",
+            "satellites": ["Metis", "Adrasteia", "Amalteia","Tebe"],
+            "imgUrl":"https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/06/36965_F44C83AB5F977CB6-1.jpg?w=1024",
+            "link": "https://en.wikipedia.org/wiki/Jupiter"
+        },
+        {
+            "id":"mars",
+            "name": "Mars",
+            "description": "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, larger only than Mercury. In the English language, Mars is named for the Roman god of war. Mars is a terrestrial planet with a thin atmosphere and has a crust primarily composed of elements similar to Earth's crust, as well as a core made of iron and nickel. Mars has surface features such as impact craters, valleys, dunes, and polar ice caps. Mars has two small, irregularly shaped moons, Phobos and Deimos.",
+            "satellites":["Fobos","Deimos"],
+            "imgUrl":"https://solarsystem.nasa.gov/system/stellar_items/image_files/6_mars.jpg",
+            "link": "https://en.wikipedia.org/wiki/Mars"
+        },
+        {
+            "id":"uranus",
+            "name": "Uranus",
+            "description": "Uranus is the seventh planet from the Sun. It is named after Greek sky deity Uranus (Caelus), who in Greek mythology is the father of Cronus (Saturn), a grandfather of Zeus (Jupiter) and great-grandfather of Ares (Mars). Uranus has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. The planet is similar in composition to Neptune, and both have bulk chemical compositions which differ from those of the other two giant planets, Jupiter and Saturn (the gas giants). For this reason, scientists often distinguish Uranus and Neptune as ice giants.",
+            "satellites":[ "Puck", "Miranda", "Ariel", "Umbriel", "Titania", "Oberon"],
+            "imgUrl":"https://ychef.files.bbci.co.uk/976x549/p0257vk5.jpg",
+            "link": "https://en.wikipedia.org/wiki/Uranus"
+        }
+    ]
+}
