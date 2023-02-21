@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import Planet from './planet';
 
 async function getPlanetsInfo(){
@@ -6,53 +6,38 @@ async function getPlanetsInfo(){
     return data;
 }
 
-class Planets extends React.Component{
-    
-    constructor(props){
-        super(props);
-        this.state = {
-            planets: []
-        }
-    }
+const Planets = (props) => {
 
-    componentDidMount(){
-        getPlanetsInfo().then((data) => {
-            this.setState((state,props)=> ({
-                planets: data['planets']
-            }));
+    const [planets,setPlanets] = useState([]);
+
+    useEffect(() => {
+        getPlanetsInfo().then(data => {
+            setPlanets(data['planets']);
         });
+    },[]);
+
+    const retrieveIndex = (planetName) => {
+        return planets.findIndex((p)=> p.id === planetName.toLowerCase());
     }
 
-    retrieveIndex(planetName){
-        return this.state.planets.findIndex((p)=> p.id === planetName.toLowerCase())
-    }
-    
-    render(){
-        if(this.state.planets.length > 0){
-            return(
-                <Fragment>
-                    <h3>Planet list</h3>
-                    {
-                        this.state.planets.map((planet)=> {
-                            return <Planet 
-                                key= {planet.id}
-                                id = {planet.id}
-                                name = {planet.name}
-                                description = {planet.description}
-                                imgUrl = {planet.imgUrl}
-                                link = {planet.link}
-                                satellites = {this.state.planets[this.retrieveIndex(planet.name)]['satellites']}
-                            />
-                        })
-                    }
-                </Fragment>
-            )
-        }
-        
-    }
-}
+    return(
+        <Fragment>
+            <h3>Planet list</h3>
+            {
+                planets.map((planet)=> {
+                    return <Planet 
+                        key= {planet.id}
+                        id = {planet.id}
+                        name = {planet.name}
+                        description = {planet.description}
+                        imgUrl = {planet.imgUrl}
+                        link = {planet.link}
+                        satellites = {planets[retrieveIndex(planet.name)]['satellites']}
+                    />
+                })
+            }
+        </Fragment>
+    );
+};
 
-
-
-// satellites = {this.state.planets[planet.name]['satellites']}
 export default Planets;
