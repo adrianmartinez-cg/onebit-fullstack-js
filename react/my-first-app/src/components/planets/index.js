@@ -11,6 +11,8 @@ const Planets = (props) => {
 
     const [planets,setPlanets] = useState([]);
 
+    window.planets = planets;
+
     useEffect(() => {
         getPlanetsInfo().then(data => {
             setPlanets(data['planets']);
@@ -32,7 +34,6 @@ const Planets = (props) => {
             <Form addPlanet = {addPlanet}/>
             <hr/>
             {
-            
                 planets.map((planet)=> {
                     return <Planet 
                         key= {planet.id}
