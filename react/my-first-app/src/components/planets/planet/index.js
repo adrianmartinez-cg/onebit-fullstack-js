@@ -5,7 +5,6 @@ import SatelliteForm from './form';
 const Planet = (props) => {
 
     const initialState = {
-        key: props.key,
         id : props.id,
         name : props.name,
         description : props.description,

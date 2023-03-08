@@ -36,7 +36,6 @@ const Planets = (props) => {
             {
                 planets.map((planet)=> {
                     return <Planet 
-                        key= {planet.id}
                         id = {planet.id}
                         name = {planet.name}
                         description = {planet.description}
